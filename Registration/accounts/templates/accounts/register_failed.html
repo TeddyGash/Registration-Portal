@@ -1,0 +1,20 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Registration Failed!{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Registration Failed!</h3>
+          <div class="alert alert-danger" role="alert">
+            <h4>Sorry,</h4>
+            The required number of applications has been reached.
+          </div>
+          <a href="{% url 'list' %}" class="btn btn-secondary btn-block">Return to list</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'accounts/base.html' %}
+
+{% load static %}
+
+
+{% block heading %}Registration Portal{% endblock %}
+
+{% block buttons %}
+<form class="form-inline ml-auto">
+    <a href="{% url 'accounts:logout' %}" class="btn btn-primary ml-2">Log out</a>
+    <!-- <a href="{% url 'accounts:dashboard' %}" class="btn btn-primary ml-2">My Profile</a> -->
+</form>
+{% endblock %}
+
+{% block breadcrumb %}
+<div class="container">
+    <ol class="breadcrumb my-4">
+      <li class="breadcrumb-item"><a href="{% url 'list' %}">List</a></li>
+      <li class="breadcrumb-item">My Profile</a></li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container justify-content-center">
+<div class="container ">
+    <div class="card" style="width:400px">
+        {% if user.gender.lower == 'male' %}
+        <img class="card-img-top img-responsive" src="{% static 'images/avatar_male.png' %}" alt="profile-img" style="width:100%"/>
+        {% elif user.gender.lower == 'female' %}
+        <img class="card-img-top img-responsive" src="{% static 'images/avatar_female.png' %}" alt="profile-img" style="width:100%"/>
+        {% endif %}
+        <div class="card-body">
+        <h4 class="card-title">{{ user.first_name }}</h4>
+        <p class="card-text">
+        <ol>
+        <strong>First Name:</strong> {{ user.first_name }} 
+        <br/>
+        <strong>Last Name:</strong> {{ user.last_name }}
+        <br/>
+        <strong>Middle Name:</strong> {{ user.middle_name }}
+        <br/>
+        <strong>Gender:</strong> {{ user.gender }}
+        <br/>
+        <strong>Rotation:</strong> {{ user.rotation }}
+        <br/>
+        <strong> Registered at:</strong> {{ user.registered_at }}
+        <br/>
+        <strong>Last update:</strong> {{ user.updated_at }}
+        <br/>
+        </ol>
+        </p>
+    </div>
+    <div class ="container justify-content-center">
+      <form class="form-inline ml-auto">
+      <a href="{% url 'list' %}" class="btn btn-primary">View List</a>
+      <a href="#" class="btn btn-primary">Edit</a>   
+      </form>
+    </div>           
+</div>
+</div>
+<br>
+<br>
+<br>
+
+{% endblock content %} 
