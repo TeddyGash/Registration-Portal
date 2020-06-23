@@ -24,7 +24,7 @@
         <h3 class="card-title">Please Complete this Form:</h3>
         <form method="post" novalidate>
           {% csrf_token %}
-          {% include 'accounts/form2.html' %}
+          {% include 'accounts/form_signup.html' %}
           <button type="submit" class="btn btn-primary btn-block">Register</button>
         </form>
       </div>
@@ -34,4 +34,7 @@
     </div>
   </div>
 </div>
+<br>
+<br>
+<br>
 {% endblock %}
